@@ -6,10 +6,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import lipsLook from "@/assets/lips-look.jpg";
-import eyesLook from "@/assets/eyes-look.jpg";
-import faceLook from "@/assets/face-look.jpg";
-import trendLook from "@/assets/trend-look.jpg";
+import lipsLook from "@/assets/lips-look.png";
+import eyesLook from "@/assets/eyes-look.png";
+import faceLook from "@/assets/face-look.png";
+import trendLook from "@/assets/trend-look.png";
 
 interface Look {
   title: string;

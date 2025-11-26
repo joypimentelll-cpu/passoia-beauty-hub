@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Star } from "lucide-react";
-import productMain from "@/assets/product-main.jpg";
+import batomAberto from "@/assets/batom-aberto.png";
+import kitBatomLiquido from "@/assets/kit-batom-liquido.png";
+import kitBatomBastao from "@/assets/kit-batom-bastao.png";
 
 const LaunchesSection = () => {
-  const [mainImage, setMainImage] = useState(productMain);
+  const [mainImage, setMainImage] = useState(batomAberto);
 
-  const colorVariants = [
-    { name: "Cinza", image: productMain },
-    { name: "Vermelho", image: productMain },
-    { name: "Marrom", image: productMain },
-    { name: "Nude", image: productMain },
+  const productImages = [
+    { name: "Batom Aberto", image: batomAberto },
+    { name: "Kit Líquido", image: kitBatomLiquido },
+    { name: "Kit Bastão", image: kitBatomBastao },
   ];
 
   return (
@@ -25,6 +26,22 @@ const LaunchesSection = () => {
               alt="Produto principal"
               className="w-full rounded-lg"
             />
+            <div className="grid grid-cols-3 gap-3">
+              {productImages.map((product) => (
+                <button
+                  key={product.name}
+                  onClick={() => setMainImage(product.image)}
+                  className="rounded-lg overflow-hidden border-2 border-transparent hover:border-primary transition-colors bg-muted p-2"
+                  aria-label={`Ver ${product.name}`}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-20 object-contain"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -39,21 +56,11 @@ const LaunchesSection = () => {
               <p className="text-muted-foreground text-sm">Cores disponíveis</p>
             </div>
 
-            <div className="flex gap-2 flex-wrap">
-              {colorVariants.map((variant) => (
-                <button
-                  key={variant.name}
-                  onClick={() => setMainImage(variant.image)}
-                  className="w-14 h-14 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary transition-colors"
-                  aria-label={`Selecionar cor ${variant.name}`}
-                >
-                  <img
-                    src={variant.image}
-                    alt={variant.name}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
+            <div className="flex gap-3">
+              <div className="w-12 h-12 rounded-full bg-[#9b8fb8] border-2 border-border cursor-pointer hover:border-primary transition-colors" />
+              <div className="w-12 h-12 rounded-full bg-[#d64545] border-2 border-border cursor-pointer hover:border-primary transition-colors" />
+              <div className="w-12 h-12 rounded-full bg-[#6b3f3f] border-2 border-border cursor-pointer hover:border-primary transition-colors" />
+              <div className="w-12 h-12 rounded-full bg-[#d88a72] border-2 border-border cursor-pointer hover:border-primary transition-colors" />
             </div>
 
             <div>

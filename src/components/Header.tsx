@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import passoiaLogo from "@/assets/passoia-logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,7 +19,7 @@ const Header = () => {
       <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-3">
-            <div className="text-2xl font-bold text-primary">PASSOIA</div>
+            <img src={passoiaLogo} alt="PASSOIA" className="h-12 w-auto" />
           </div>
 
           <nav className="hidden md:flex items-center gap-6">
