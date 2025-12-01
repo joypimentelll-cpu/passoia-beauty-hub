@@ -1,10 +1,28 @@
+import { useState } from "react";
 import { Star } from "lucide-react";
-import batomAberto from "@/assets/batom-aberto.png";
+import batomLiquido from "@/assets/batom-liquido.png";
 import kitBatomLiquido from "@/assets/kit-batom-liquido.png";
-import kitBatomBastao from "@/assets/kit-batom-bastao.png";
+import batomAberto from "@/assets/batom-aberto.png";
 import bocaCinza from "@/assets/boca-cinza.png";
 
+type ColorOption = {
+  id: string;
+  color: string;
+  mouthImage: string;
+};
+
+const colorOptions: ColorOption[] = [
+  { id: "cinza", color: "#9b8fb8", mouthImage: bocaCinza },
+  { id: "vermelho", color: "#d64545", mouthImage: bocaCinza },
+  { id: "marrom", color: "#6b3f3f", mouthImage: bocaCinza },
+  { id: "nude", color: "#d88a72", mouthImage: bocaCinza },
+];
+
 const LaunchesSection = () => {
+  const [selectedColor, setSelectedColor] = useState<string>("cinza");
+
+  const currentMouthImage = colorOptions.find(c => c.id === selectedColor)?.mouthImage || bocaCinza;
+
   return (
     <section id="lancamentos" className="py-16 px-4 bg-muted/30">
       <div className="container mx-auto">
@@ -15,8 +33,8 @@ const LaunchesSection = () => {
           {/* Primeira coluna - 3 imagens empilhadas */}
           <div className="flex flex-col gap-3">
             <img
-              src={kitBatomBastao}
-              alt="Kit 3 Batom em Bastão"
+              src={batomLiquido}
+              alt="Batom Líquido"
               className="w-full rounded-lg object-cover flex-1"
             />
             <img
@@ -31,12 +49,12 @@ const LaunchesSection = () => {
             />
           </div>
 
-          {/* Coluna central - Imagem modelo lábios cinza */}
+          {/* Coluna central - Imagem modelo lábios */}
           <div className="flex items-center justify-center">
             <img
-              src={bocaCinza}
+              src={currentMouthImage}
               alt="Matte Premium"
-              className="w-full h-full rounded-lg object-cover"
+              className="w-full h-full rounded-lg object-cover transition-all duration-300"
             />
           </div>
 
@@ -54,19 +72,27 @@ const LaunchesSection = () => {
             </div>
 
             <div className="flex gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#9b8fb8] border-2 border-border cursor-pointer hover:border-primary transition-colors" />
-              <div className="w-10 h-10 rounded-full bg-[#d64545] border-2 border-border cursor-pointer hover:border-primary transition-colors" />
-              <div className="w-10 h-10 rounded-full bg-[#6b3f3f] border-2 border-border cursor-pointer hover:border-primary transition-colors" />
-              <div className="w-10 h-10 rounded-full bg-[#d88a72] border-2 border-border cursor-pointer hover:border-primary transition-colors" />
+              {colorOptions.map((option) => (
+                <button
+                  key={option.id}
+                  onClick={() => setSelectedColor(option.id)}
+                  className={`w-10 h-10 rounded-full border-2 cursor-pointer transition-all duration-200 ${
+                    selectedColor === option.id
+                      ? "border-primary ring-2 ring-primary/30 scale-110"
+                      : "border-border hover:border-primary"
+                  }`}
+                  style={{ backgroundColor: option.color }}
+                  aria-label={`Selecionar cor ${option.id}`}
+                />
+              ))}
             </div>
 
             <div>
               <h4 className="font-bold mb-2">Descrição</h4>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                O Batom Matte possui uma fórmula inovadora desenvolvida para entregar o
-                máximo de cor na primeira aplicação com um deslize suave e macio. Tem
-                acabamento matte aveludado e manteiga de manga que ajuda a hidratar e a
-                proteger os lábios contra ressecamento.
+                Tem acabamento matte aveludado e manteiga de manga que ajuda a hidratar e a
+                proteger os lábios contra ressecamento. Ajuda na hidratação dos lábios, 
+                textura fina e macia que não pesa nos lábios.
               </p>
             </div>
           </div>
