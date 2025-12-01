@@ -1,4 +1,11 @@
-import { CreditCard, DollarSign, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
+import instagramIcon from "@/assets/instagram.png";
+import facebookIcon from "@/assets/facebook.png";
+import youtubeIcon from "@/assets/youtube.png";
+import twitterIcon from "@/assets/twitter.png";
+import mastercardIcon from "@/assets/mastercard.png";
+import visaIcon from "@/assets/visa.png";
+import pixIcon from "@/assets/pix.png";
+import boletoIcon from "@/assets/boleto.png";
 
 const Footer = () => {
   return (
@@ -25,49 +32,28 @@ const Footer = () => {
 
           <div>
             <h4 className="font-bold mb-4">FORMAS DE PAGAMENTO</h4>
-            <div className="flex gap-3 flex-wrap">
-              <div className="w-12 h-12 bg-background rounded flex items-center justify-center border border-border">
-                <CreditCard className="w-6 h-6 text-muted-foreground" />
-              </div>
-              <div className="w-12 h-12 bg-background rounded flex items-center justify-center border border-border">
-                <CreditCard className="w-6 h-6 text-muted-foreground" />
-              </div>
-              <div className="w-12 h-12 bg-background rounded flex items-center justify-center border border-border">
-                <DollarSign className="w-6 h-6 text-muted-foreground" />
-              </div>
+            <div className="flex gap-3 flex-wrap items-center">
+              <img src={mastercardIcon} alt="Mastercard" className="h-8" />
+              <img src={visaIcon} alt="Visa" className="h-8" />
+              <img src={pixIcon} alt="Pix" className="h-8" />
+              <img src={boletoIcon} alt="Boleto" className="h-8" />
             </div>
           </div>
 
           <div>
             <h4 className="font-bold mb-4">SIGA-NOS NAS REDES SOCIAIS</h4>
             <div className="flex gap-3">
-              <a
-                href="#"
-                className="w-10 h-10 bg-background rounded-full flex items-center justify-center border border-border hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
+              <a href="#" aria-label="Instagram">
+                <img src={instagramIcon} alt="Instagram" className="w-8 h-8" />
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-background rounded-full flex items-center justify-center border border-border hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
+              <a href="#" aria-label="Facebook">
+                <img src={facebookIcon} alt="Facebook" className="w-8 h-8" />
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-background rounded-full flex items-center justify-center border border-border hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5" />
+              <a href="#" aria-label="YouTube">
+                <img src={youtubeIcon} alt="YouTube" className="w-8 h-8" />
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-background rounded-full flex items-center justify-center border border-border hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
+              <a href="#" aria-label="Twitter">
+                <img src={twitterIcon} alt="Twitter" className="w-8 h-8" />
               </a>
             </div>
           </div>

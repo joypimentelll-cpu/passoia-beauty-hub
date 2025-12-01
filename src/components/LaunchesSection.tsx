@@ -14,13 +14,13 @@ const LaunchesSection = () => {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-start">
           <div className="flex flex-col gap-3">
             <img
-              src={batomAberto}
-              alt="Batom Aberto"
+              src={kitBatomBastao}
+              alt="Kit 3 Batom em Bastão"
               className="w-full rounded-lg object-cover"
             />
             <img
-              src={kitBatomBastao}
-              alt="Kit 3 Batom em Bastão"
+              src={batomAberto}
+              alt="Batom Aberto"
               className="w-full rounded-lg object-cover"
             />
             <img
