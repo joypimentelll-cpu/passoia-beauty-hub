@@ -4,6 +4,9 @@ import batomLiquido from "@/assets/batom-liquido.png";
 import kitBatomLiquido from "@/assets/kit-batom-liquido.png";
 import batomAberto from "@/assets/batom-aberto.png";
 import bocaCinza from "@/assets/boca-cinza.png";
+import bocaNude from "@/assets/modelo-boca-nude.png";
+import bocaMarrom from "@/assets/modelo-boca-marrom.png";
+import bocaVermelho from "@/assets/modelo-boca-vermelho.png";
 
 type ColorOption = {
   id: string;
@@ -13,9 +16,9 @@ type ColorOption = {
 
 const colorOptions: ColorOption[] = [
   { id: "cinza", color: "#9b8fb8", mouthImage: bocaCinza },
-  { id: "vermelho", color: "#d64545", mouthImage: bocaCinza },
-  { id: "marrom", color: "#6b3f3f", mouthImage: bocaCinza },
-  { id: "nude", color: "#d88a72", mouthImage: bocaCinza },
+  { id: "vermelho", color: "#d64545", mouthImage: bocaVermelho },
+  { id: "marrom", color: "#6b3f3f", mouthImage: bocaMarrom },
+  { id: "nude", color: "#d88a72", mouthImage: bocaNude },
 ];
 
 const LaunchesSection = () => {
@@ -30,8 +33,8 @@ const LaunchesSection = () => {
           APROVEITE OS LANÇAMENTOS
         </h2>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
-          {/* Primeira coluna - 3 imagens empilhadas */}
-          <div className="flex flex-col gap-3">
+          {/* Primeira coluna - 3 imagens empilhadas (some em mobile) */}
+          <div className="hidden md:flex flex-col gap-3">
             <img
               src={batomLiquido}
               alt="Batom Líquido"
@@ -90,7 +93,9 @@ const LaunchesSection = () => {
             <div>
               <h4 className="font-bold mb-2">Descrição</h4>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Tem acabamento matte aveludado e manteiga de manga que ajuda a hidratar e a
+                O Batom Matte possui uma fórmula inovadora desenvolvida para entregar o
+                máximo de cor na primeira aplicação com um deslize suave e macio. Tem
+                acabamento matte aveludado e manteiga de manga que ajuda a hidratar e a
                 proteger os lábios contra ressecamento. Ajuda na hidratação dos lábios, 
                 textura fina e macia que não pesa nos lábios.
               </p>

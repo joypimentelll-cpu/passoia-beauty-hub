@@ -8,7 +8,7 @@ const NewsSection = () => {
         <img
           src={newsBanner}
           alt="Novidades em cosméticos"
-          className="w-full h-[40vh] object-cover rounded-lg mx-auto"
+          className="w-full h-[30vh] object-cover rounded-lg mx-auto"
         />
       </div>
     </section>
