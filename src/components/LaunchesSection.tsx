@@ -34,26 +34,29 @@ const LaunchesSection = () => {
         </h2>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
           {/* Primeira coluna - 3 imagens empilhadas (some em mobile) */}
-          <div className="hidden md:flex flex-col gap-3">
+          <div className="hidden md:flex flex-col gap-2" style={{ height: '30vh' }}>
             <img
               src={batomLiquido}
               alt="Batom Líquido"
-              className="w-full rounded-lg object-cover flex-1"
+              className="w-full rounded-lg object-cover"
+              style={{ height: 'calc(30vh / 3 - 4px)' }}
             />
             <img
               src={kitBatomLiquido}
               alt="Kit Batom Líquido Trio"
-              className="w-full rounded-lg object-cover flex-1"
+              className="w-full rounded-lg object-cover"
+              style={{ height: 'calc(30vh / 3 - 4px)' }}
             />
             <img
               src={batomAberto}
               alt="Batom Aberto"
-              className="w-full rounded-lg object-cover flex-1"
+              className="w-full rounded-lg object-cover"
+              style={{ height: 'calc(30vh / 3 - 4px)' }}
             />
           </div>
 
           {/* Coluna central - Imagem modelo lábios */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center" style={{ height: '30vh' }}>
             <img
               src={currentMouthImage}
               alt="Matte Premium"
