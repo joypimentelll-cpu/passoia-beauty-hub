@@ -7,69 +7,63 @@ import bocaCinza from "@/assets/boca-cinza.png";
 import bocaNude from "@/assets/modelo-boca-nude.png";
 import bocaMarrom from "@/assets/modelo-boca-marrom.png";
 import bocaVermelho from "@/assets/modelo-boca-vermelho.png";
-
 type ColorOption = {
   id: string;
   color: string;
   mouthImage: string;
 };
-
-const colorOptions: ColorOption[] = [
-  { id: "cinza", color: "#9b8fb8", mouthImage: bocaCinza },
-  { id: "vermelho", color: "#d64545", mouthImage: bocaVermelho },
-  { id: "marrom", color: "#6b3f3f", mouthImage: bocaMarrom },
-  { id: "nude", color: "#d88a72", mouthImage: bocaNude },
-];
-
+const colorOptions: ColorOption[] = [{
+  id: "cinza",
+  color: "#9b8fb8",
+  mouthImage: bocaCinza
+}, {
+  id: "vermelho",
+  color: "#d64545",
+  mouthImage: bocaVermelho
+}, {
+  id: "marrom",
+  color: "#6b3f3f",
+  mouthImage: bocaMarrom
+}, {
+  id: "nude",
+  color: "#d88a72",
+  mouthImage: bocaNude
+}];
 const LaunchesSection = () => {
   const [selectedColor, setSelectedColor] = useState<string>("cinza");
-
   const currentMouthImage = colorOptions.find(c => c.id === selectedColor)?.mouthImage || bocaCinza;
-
-  return (
-    <section id="lancamentos" className="py-16 px-4 bg-muted/30">
+  return <section id="lancamentos" className="py-16 px-4 bg-muted/30">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">
           APROVEITE OS LANÇAMENTOS
         </h2>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
           {/* Primeira coluna - 3 imagens empilhadas (some em mobile) */}
-          <div className="hidden md:flex flex-col gap-2" style={{ height: '30vh' }}>
-            <img
-              src={batomLiquido}
-              alt="Batom Líquido"
-              className="w-full rounded-lg object-cover"
-              style={{ height: 'calc(30vh / 3 - 4px)' }}
-            />
-            <img
-              src={kitBatomLiquido}
-              alt="Kit Batom Líquido Trio"
-              className="w-full rounded-lg object-cover"
-              style={{ height: 'calc(30vh / 3 - 4px)' }}
-            />
-            <img
-              src={batomAberto}
-              alt="Batom Aberto"
-              className="w-full rounded-lg object-cover"
-              style={{ height: 'calc(30vh / 3 - 4px)' }}
-            />
+          <div style={{
+          height: '30vh'
+        }} className="hidden flex-col gap-2 md:flex md:items-start md:justify-end">
+            <img src={batomLiquido} alt="Batom Líquido" style={{
+            height: 'calc(30vh / 3 - 4px)'
+          }} className="w-full rounded-lg object-contain" />
+            <img src={kitBatomLiquido} alt="Kit Batom Líquido Trio" style={{
+            height: 'calc(30vh / 3 - 4px)'
+          }} className="w-full rounded-lg object-contain" />
+            <img src={batomAberto} alt="Batom Aberto" style={{
+            height: 'calc(30vh / 3 - 4px)'
+          }} className="w-full rounded-lg object-contain" />
           </div>
 
           {/* Coluna central - Imagem modelo lábios */}
-          <div className="flex items-center justify-center" style={{ height: '30vh' }}>
-            <img
-              src={currentMouthImage}
-              alt="Matte Premium"
-              className="w-full h-full rounded-lg object-cover transition-all duration-300"
-            />
+          <div style={{
+          height: '30vh'
+        }} className="flex items-end justify-center">
+            <img src={currentMouthImage} alt="Matte Premium" className="w-full h-full rounded-lg transition-all duration-300 object-contain" />
           </div>
 
           {/* Terceira coluna - Detalhes do produto */}
           <div className="flex flex-col justify-center gap-6">
             <div className="flex items-center gap-2">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-              ))}
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-primary text-primary" />)}
             </div>
 
             <div>
@@ -78,19 +72,9 @@ const LaunchesSection = () => {
             </div>
 
             <div className="flex gap-3">
-              {colorOptions.map((option) => (
-                <button
-                  key={option.id}
-                  onClick={() => setSelectedColor(option.id)}
-                  className={`w-10 h-10 rounded-full border-2 cursor-pointer transition-all duration-200 ${
-                    selectedColor === option.id
-                      ? "border-primary ring-2 ring-primary/30 scale-110"
-                      : "border-border hover:border-primary"
-                  }`}
-                  style={{ backgroundColor: option.color }}
-                  aria-label={`Selecionar cor ${option.id}`}
-                />
-              ))}
+              {colorOptions.map(option => <button key={option.id} onClick={() => setSelectedColor(option.id)} className={`w-10 h-10 rounded-full border-2 cursor-pointer transition-all duration-200 ${selectedColor === option.id ? "border-primary ring-2 ring-primary/30 scale-110" : "border-border hover:border-primary"}`} style={{
+              backgroundColor: option.color
+            }} aria-label={`Selecionar cor ${option.id}`} />)}
             </div>
 
             <div>
@@ -106,8 +90,6 @@ const LaunchesSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default LaunchesSection;
